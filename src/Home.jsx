@@ -11,8 +11,8 @@ const Home = () => {
                 <div className="col-md-10 mx-auto">
                     <div className="row">
                         <div className="col-md-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column">
-                            <h1 className="GH">GambleHere</h1>
-                            <h4>Is a place where you can double your money!!</h4>
+                            <h1 className="GH">Gamble<span>Here</span></h1>
+                            <h4 className="GH-text">Welcome to the HOME of GAMBLING!! <br /><br />Welcome to the HOME of GAMBLING!!Welcome to the HOME of GAMBLING!!Welcome to the HOME of GAMBLING!!</h4>
                             <NavLink className="go-to" to='/signup'>
                                 <Button variant="outlined" color="primary" className='get-started'>
                                     Get Started

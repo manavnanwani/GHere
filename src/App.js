@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar'
+import Footer from './Footer'
 import Home from './Home'
 import About from './About'
 import Contact from './Contact'
@@ -13,7 +14,7 @@ import Blackjack from './Blackjack'
 
 function App() {
   return (
-    <div>
+    <div class='main-page'>
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home}/>
@@ -26,6 +27,7 @@ function App() {
         <Route exact path='/blackjack' component={Blackjack}/>
         <Redirect to='/'/>
       </Switch>
+      <Footer />
     </div>
   );
 }

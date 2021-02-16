@@ -67,6 +67,7 @@ const Blackjack = () => {
         settotalC(cardsValue[random[5]] + cardsValue[random[6]] + (random[7] ? cardsValue[random[7]] : 0) + (random[8] ? cardsValue[random[8]] : 0) + (random[9] ? cardsValue[random[9]] : 0))
         if(cardsValue[random[0]] + cardsValue[random[1]] + (random[2] ? cardsValue[random[2]] : 0) + (random[3] ? cardsValue[random[3]] : 0) + (random[4] ? cardsValue[random[4]] : 0) > 21){
             settext("Busted")
+            sethide(-1)
         }
     }
 
@@ -101,9 +102,10 @@ const Blackjack = () => {
 
     const UserHit = () => {
         if(checkAmount()){
-        if(random[0] === 0 || totalU > 21)
+        if(totalU > 21)
         {
             settext("You Lose")
+            sethide(-1)
             setamt(0)
         }
         else if(cardsValue[random[0]] + cardsValue[random[1]] + (random[2] ? cardsValue[random[2]] : 0) + (random[3] ? cardsValue[random[3]] : 0) + (random[4] ? cardsValue[random[4]] : 0) === 21){
@@ -216,8 +218,8 @@ const Blackjack = () => {
                             <h3 className="text-center">Welcome User</h3>
                             <br />
                             <h4 className="text-right">Available Balance: {bal}$</h4>
-                            <div className="row mt-5">
-                                <div className="col-md-10 mx-auto">
+                            {/* <div className="row mt-5">
+                                <div className="col-md-10 mx-auto"> */}
                                     <h3 className="text-center bj-head">BLACKJACK</h3>
                                     <div className="row mt-5">
                                         <div className="col-md-6 text-center">
@@ -283,8 +285,8 @@ const Blackjack = () => {
                                         </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        {/* </div>
+                    </div> */}
                 </div>
             </div>
         </div>

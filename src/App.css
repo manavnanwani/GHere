@@ -8,12 +8,40 @@ html,body{
   background-color: black !important;
   color: white !important;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #3854ee;
+}
+::-webkit-scrollbar-thumb {
+  background: aqua;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: aqua;
+}
+
 .MuiButton-outlinedPrimary{
   color: #3854ee !important;
   border: 1px solid #3854ee !important;
 }
+.container-fluid{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
 .navbar{
   background-color: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .navbar-brand{
   font-size: 1.6rem !important;
@@ -30,25 +58,46 @@ html,body{
 .active-link{
   color: aqua !important;
 }
-
+.GH-nav{
+  font-size: 1.7rem;
+  color: aqua !important;
+}
+.GH-nav span{
+  color: #3854ee;
+}
+.GH-nav:hover{
+  text-emphasis: none;
+  text-decoration: none;
+}
 
 .cont{
-  margin-top: 60px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+
 }
+
 .GH{
   font-size: 3.5rem;
   color: aqua;
   margin-bottom: 20px;
 }
+.GH span{
+  color: #3854ee;
+}
+.GH-text{
+  color: #fff3e6;
+}
 .go-to{
   margin-top: 40px;
+  width: 150px;
 }
 .go-to:hover{
   text-decoration: none;
 }
 .get-started{
-  color: cyan;
-  width: 200px;
+  padding: 12px !important;
+  width: auto;
+  font-size: 1.05rem !important;
 }
 .get-started:hover{
   text-decoration: none !important;
@@ -68,15 +117,38 @@ html,body{
 }
 
 
+.sign-up-text,.login-text{
+  position: relative;
+  top: -50px;
+  z-index: 1;
+  width: 200px;
+  background: black;
+  margin: 0 auto;
+  padding: 0 10px;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
 .sign-up-main,.login-main{
   width: 30%;
   margin-top: 80px;
   border-radius: 20px;
-  padding: 30px 20px  !important;
+  padding: 20px 20px  !important;
+  padding-bottom: 40px !important;
+  
+  box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  -webkit-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  -moz-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  border: 3px solid white;
+}
+.sign-up-main:hover,.login-main:hover{
   box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
--webkit-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
--moz-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
-border: 3px solid white;
+  -webkit-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
+  -moz-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
 }
 .login-button button, .signup-button button{
   margin-top: 15px !important;
@@ -198,4 +270,22 @@ input::-webkit-inner-spin-button {
   font-size: 1.2rem !important;
   margin: 20px !important;
   width: 120px;
+}
+
+
+.footer{
+  /* background-color: rgb(39, 37, 37); */
+  color: aqua;
+  height: 5vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  left:0;
+  bottom:0;
+}
+.footer h6{
+  margin-bottom: 0 !important;
 }

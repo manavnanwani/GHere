@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom'
 const Login = () => {
     return (
         <div className="login-main mx-auto">
-            <h2 className="text-center mb-5">Login</h2>
+            <h2 className="text-center mb-5 login-text">Login</h2>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Username</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Username" />
