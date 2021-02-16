@@ -1,5 +1,5 @@
 import React from 'react'
-import img from './images/cards3.png'
+import img from './images/cards4.png'
 import Button from '@material-ui/core/Button';
 import {NavLink} from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const Home = () => {
             <div className="row">
                 <div className="col-md-10 mx-auto">
                     <div className="row">
-                        <div className="col-md-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column">
+                        <div className="main col-md-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column">
                             <h1 className="GH">Gamble<span>Here</span></h1>
                             <h4 className="GH-text">Welcome to the HOME of GAMBLING!! <br /><br />Welcome to the HOME of GAMBLING!!Welcome to the HOME of GAMBLING!!Welcome to the HOME of GAMBLING!!</h4>
                             <NavLink className="go-to" to='/signup'>

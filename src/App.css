@@ -21,6 +21,7 @@ html,body{
   background: aqua;
 }
 
+
 .MuiButton-outlinedPrimary{
   color: #3854ee !important;
   border: 1px solid #3854ee !important;
@@ -70,12 +71,17 @@ html,body{
   text-decoration: none;
 }
 
+
 .cont{
   margin-top: 90px;
   margin-bottom: 90px;
-
 }
 
+
+
+.main{
+  padding: 0 !important;
+}
 .GH{
   font-size: 3.5rem;
   color: aqua;
