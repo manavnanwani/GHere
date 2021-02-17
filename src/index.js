@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import $ from 'jquery';
 import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 ReactDOM.render(<>
-<BrowserRouter>
+<HashRouter>
 <App />
-</BrowserRouter></>, document.getElementById('root'))
+</HashRouter></>, document.getElementById('root'))
 
 
