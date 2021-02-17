@@ -67,11 +67,11 @@ html,body{
 }
 
 
-.cont{
+.cont,.cont-home{
   margin-top: 90px;
   margin-bottom: 90px;
 }
-.cont div div{
+.cont-home div div{
   padding: 0 !important;
 }
 
@@ -88,7 +88,10 @@ html,body{
   color: #3854ee;
 }
 .GH-text{
+  margin-top: 20px;
   color: #fff3e6;
+  text-align: justify;
+  line-height: 35px;
 }
 .go-to{
   margin-top: 40px;

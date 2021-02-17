@@ -6,13 +6,13 @@ import {NavLink} from 'react-router-dom'
 const Home = () => {
     return (
         <div className="d-flex align-items-center">
-          <div className="container-fluid cont">
+          <div className="container-fluid cont-home">
             <div className="row">
                 <div className="col-md-10 mx-auto">
                     <div className="row">
                         <div className="main col-md-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column">
                             <h1 className="GH">Gamble<span>Here</span></h1>
-                            <h4 className="GH-text">Welcome to the HOME of GAMBLING!! <br /><br />Welcome to the HOME of GAMBLING!!Welcome to the HOME of GAMBLING!!Welcome to the HOME of GAMBLING!!</h4>
+                            <h4 className="GH-text">Welcome to the HOME of GAMBLING!! <br /><br /> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta rem, voluptatem recusandae architecto doloremque quasi provident natus fugiat sunt voluptas. Laborum amet similique deleniti tempora voluptatem explicabo ipsum, laboriosam magni.</h4>
                             <NavLink className="go-to" to='/signup'>
                                 <Button variant="outlined" color="primary" className='get-started'>
                                     Get Started
