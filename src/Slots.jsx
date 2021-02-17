@@ -18,8 +18,6 @@ const Slots = () => {
     const [first, setfirst] = useState()
     const [second, setsecond] = useState()
     const [third, setthird] = useState()
-    // const arr=["😍","😯","😂","🤓","🦊","🤡"]
-    // const arr=["1","2","3","4","5","6"]
     const arr=[dice1,dice2,dice3,dice4,dice5,dice6]
 
     const random = Math.floor(Math.random()*6)
@@ -129,7 +127,7 @@ const Slots = () => {
                             </div>
                             <div className="mt-5 d-flex amount-slots">
                                 <h3 className="mr-4">Enter Amount</h3>
-                                <input autoComplete="off" type="number" placeholder="100,500,1000,..." value={amt} onChange={amtchange}/>
+                                <input autoComplete="off" type="number" placeholder="100,500,1000,..." value={amt} onChange={amtchange} defaultValue="0"/>
                                 <div className="add-btns ml-auto">
                                     <Button onClick={btn1} variant="outlined" className="mt-5 slots-button" color="primary">
                                         <ClearIcon />

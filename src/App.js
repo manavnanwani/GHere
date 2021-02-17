@@ -11,6 +11,7 @@ import SignUp from './SignUp'
 import Games from './Games'
 import Slots from './Slots'
 import Blackjack from './Blackjack'
+import Climb from './Climb'
 
 function App() {
   return (
@@ -25,9 +26,10 @@ function App() {
         <Route exact path='/games' component={Games}/>
         <Route exact path='/slots' component={Slots}/>
         <Route exact path='/blackjack' component={Blackjack}/>
+        <Route exact path='/climb' component={Climb}/>
         <Redirect to='/'/>
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

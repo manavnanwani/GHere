@@ -67,6 +67,36 @@ html,body{
 }
 
 
+.form-main{
+  max-width: 40vw;
+  margin: 60px auto;
+  border-radius: 20px;
+  padding: 20px 20px  !important;
+  padding-bottom: 40px !important;
+  box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  -webkit-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  -moz-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  border: 3px solid white;
+}
+.form-main h3{
+  position: relative;
+  top: -50px;
+  z-index: 1;
+  width: 250px;
+  background: black;
+  margin: 0 auto;
+  padding: 0 10px;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+
+
 .cont,.cont-home{
   margin-top: 90px;
   margin-bottom: 90px;
@@ -110,7 +140,7 @@ html,body{
 }
 .animated{
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
-  /* height: 600px; */
+  height: 400px !important;
   width: 400px;
 }
 @keyframes up-down {
@@ -145,13 +175,12 @@ html,body{
   border-radius: 20px;
   padding: 20px 20px  !important;
   padding-bottom: 40px !important;
-  
   box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
   -webkit-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
   -moz-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
   border: 3px solid white;
 }
-.sign-up-main:hover,.login-main:hover{
+.sign-up-main:hover,.login-main:hover,.form-main:hover{
   box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
   -webkit-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
   -moz-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
@@ -179,7 +208,10 @@ html,body{
   margin-top: 20px;
   color: white;
 }
-
+.cust-name{
+  color: red;
+  text-transform: uppercase;
+}
 
 
 .slots-img{
@@ -189,18 +221,10 @@ html,body{
   border-radius: 20px;
 }
 .slots-main{
-  /* border: 1px solid white; */
   border-radius: 15px;
   height: 50px;
   background-image: linear-gradient(45deg, #04258f 25%, #386b85 25%, #386b85 50%, #04258f 50%, #04258f 75%, #386b85 75%, #386b85 100%);
   background-size: 56.57px 56.57px;
-  /* background: repeating-linear-gradient(
-  45deg,
-  #606dbc,
-  #606dbc 10px,
-  #465298 10px,
-  #465298 20px
-); */
 }
 .slots-button{
   font-size: 1.2rem !important;
@@ -263,14 +287,25 @@ input::-webkit-inner-spin-button {
   margin-top: 20px;
   height: auto;
   min-height: 60px;
-  background-color: white;
-  color: black;
-  padding: 20px;
-  display: flex;
-  align-items: center;
+  background-color: black;
+  color: grey;
+  padding: 10px;
+  border: 3px solid grey;
+  border-radius: 10px;
+
 }
 .disp h4{
   margin: 0 10px;
+}
+.disp p{
+  height: 22px;
+  bottom: 74px;
+  right: 47px;
+  position: absolute;
+}
+.disp img{
+   height: 110px;
+   margin: 0 10px;
 }
 .bj-retry,.bj-hit{
   font-size: 1.2rem !important;
