@@ -1,10 +1,51 @@
-import React,{ useEffect } from 'react'
+import React,{ Fragment,useState} from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink,Redirect } from 'react-router-dom'
+import { logout } from './actions/auth';
+import { connect } from 'react-redux';
+
+const Navbar = ({ logout, isAuthenticated }) => {
+
+    const [redirect, setRedirect] = useState(false);
+
+    const logout_user = () => {
+        logout();
+        setRedirect(true);
+    };
+    
+    const guestLinks = () => (
+        <Fragment>
+            <li className="nav-item">
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/about">About</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/contact">Contact</NavLink>
+            </li> 
+            <li className="nav-item">
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/signup">Sign Up</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/login">Login</NavLink>
+            </li>
+        </Fragment>
+    );
+
+    const authLinks = () => (
+        <Fragment>
+            <li className="nav-item">
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/contact">Contact</NavLink>
+            </li> 
+            <li className='nav-item'>
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to='/games'>Games</NavLink>
+            </li>
+            <li className='nav-item'>
+                <NavLink activeClassName="active-link" className="nav-link text-uppercase" to='/home' onClick={logout_user}>Logout</NavLink>
+            </li>
+        </Fragment>
+    );
 
 
-const Navbar = () => {
     return (           
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid col-md-10 mx-auto">
@@ -14,19 +55,8 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                        <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/about">About</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/contact">Contact</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/signup">Sign Up</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink activeClassName="active-link" className="nav-link text-uppercase" to="/login">Login</NavLink>
-                    </li>
                     
+                    {isAuthenticated ? authLinks() : guestLinks()}
                 </ul>
                 </div>
             </div>
@@ -34,4 +64,8 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { logout })(Navbar);

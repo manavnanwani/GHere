@@ -402,6 +402,9 @@ input::-webkit-inner-spin-button {
  .navbar-expand-lg>.container-fluid{
     padding: 0 15px !important;
   }
+  .sign-up-main,.login-main{
+    width: 60%;
+  }
 } 
 
 @media (max-width: 450px){

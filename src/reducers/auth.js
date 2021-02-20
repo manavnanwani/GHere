@@ -13,6 +13,8 @@ import {
 const initialState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresh'),
+    name: '',
+    balance: 0,
     isAuthenticated: null,
     user: null
 };
@@ -43,7 +45,9 @@ export default function(state = initialState, action) {
         case USER_LOADED_SUCCESS:
             return {
                 ...state,
-                user: payload
+                user: payload,
+                name: payload.first_name,
+                balance: payload.balance
             }
         case AUTHENTICATED_FAIL:
             return {
@@ -55,8 +59,15 @@ export default function(state = initialState, action) {
                 ...state,
                 user: null
             }
-        case LOGIN_FAIL:
         case SIGNUP_FAIL:
+            return{
+                ...state,
+                access: null,
+                refresh: null,
+                isAuthenticated: false,
+                user: null
+            }
+        case LOGIN_FAIL:
         case LOGOUT:
             localStorage.removeItem('access');
             localStorage.removeItem('refresh');

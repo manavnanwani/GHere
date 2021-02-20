@@ -15,22 +15,22 @@ import Climb from './Climb'
 import { Provider } from 'react-redux';
 import store from './store';
 
-
 function App() {
   return (
     <div class='main-page'>
-      <Navbar />
+      
       <Provider store={store}> 
+        <Navbar />
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/about' component={About}/>
           <Route exact path='/contact' component={Contact}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/signup' component={SignUp}/>
-          <Route exact path='/games' component={Games}/>
           <Route exact path='/slots' component={Slots}/>
           <Route exact path='/blackjack' component={Blackjack}/>
           <Route exact path='/climb' component={Climb}/>
+          <Route exact path="/games" component={Games} />
           <Redirect to='/'/>
         </Switch>
       </Provider>

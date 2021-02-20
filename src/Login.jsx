@@ -22,7 +22,7 @@ const Login = ({ login, isAuthenticated }) => {
     };
 
     if (isAuthenticated) {
-        return <Redirect to='/' />
+        return <Redirect to='/games' />
     }
 
     return (
@@ -55,9 +55,11 @@ const Login = ({ login, isAuthenticated }) => {
                         required
                     />
                 </div>
-                <Button className="mt-4" type='submit' variant="outlined" color="primary">
-                    Login
-                </Button>
+                {/* <Link className="login-button" to='/games'> */}
+                    <Button className="mt-4" type='submit' variant="outlined" color="primary">
+                        Login
+                    </Button>
+                {/* </Link> */}
             </form>
             <p className='mt-3'>
                 Don't have an account? <Link to='/signup'>Sign Up</Link>
