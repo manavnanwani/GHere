@@ -1,29 +1,74 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Button from '@material-ui/core/Button';
-import {NavLink} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { login } from './actions/auth';
+import axios from 'axios';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '' 
+    });
+
+    const { email, password } = formData;
+
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onSubmit = e => {
+        e.preventDefault();
+        login(email, password);
+    };
+
+    if (isAuthenticated) {
+        return <Redirect to='/' />
+    }
+
     return (
         <div className="login-main mx-auto">
             <h2 className="text-center mb-5 login-text">Login</h2>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Username" />
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput3" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleFormControlInput3" placeholder="Enter Password" />
-            </div>
-            <NavLink className="login-button" to='/games'>
-                <Button variant="outlined" color="primary">
+            <form onSubmit={e => onSubmit(e)}>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        placeholder="Enter Email" 
+                        name='email'
+                        value={email}
+                        onChange={e => onChange(e)}
+                        required
+                        autoComplete="off"
+                    />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        placeholder="Enter Password" 
+                        name='password'
+                        value={password}
+                        onChange={e => onChange(e)}
+                        minLength='8'
+                        required
+                    />
+                </div>
+                <Button className="mt-4" type='submit' variant="outlined" color="primary">
                     Login
                 </Button>
-            </NavLink>
+            </form>
+            <p className='mt-3'>
+                Don't have an account? <Link to='/signup'>Sign Up</Link>
+            </p>
+
         </div>
     )
 }
 
-export default Login
-// box-shadow: 8px -9px 26px -5px rgba(252,252,252,0.75);
-// -webkit-box-shadow: 8px -9px 26px -5px rgba(252,252,252,0.75);
-// -moz-box-shadow: 8px -9px 26px -5px rgba(252,252,252,0.75);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps,{login})(Login)

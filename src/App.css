@@ -99,7 +99,7 @@ html,body{
 
 .cont,.cont-home{
   margin-top: 90px;
-  margin-bottom: 90px;
+  margin-bottom: 15px;
 }
 .cont-home div div{
   padding: 0 !important;
@@ -186,14 +186,20 @@ html,body{
   -moz-box-shadow: 0px 0px 53px -20px rgba(255,255,255,0.66);
 }
 .login-button button, .signup-button button{
-  margin-top: 15px !important;
+  margin-top: 25px !important;
   font-size: 0.96rem;
 }
-.login-button:hover, .signup-button:hover{
-  text-decoration: none;
+
+.login-main p a,.sign-up-main p a{
+  color:#3854ee;
 }
-
-
+.login-main p a:hover,.sign-up-main p a:hover{
+  text-decoration: none;
+  color:#3854ee;
+}
+.sign-up-main .col-lg-6,.sign-up-main .col-md-12{
+  padding: 0 !important;
+}
 
 .games-slots{
   display: flex;
@@ -314,6 +320,66 @@ input::-webkit-inner-spin-button {
 }
 
 
+.climb-main{
+  border: 3px solid white;
+  border-radius: 20px;
+  height: 592px;
+  width: 60%;
+  margin: 40px auto;
+  padding: 30px 0;
+  box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  -webkit-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+  -moz-box-shadow: 0px 0px 63px -30px rgba(255,255,255,0.66);
+}
+.climb-box{
+  background-color: white;
+  height: 100px;
+  margin: 3px 0;
+  border: 8px solid aqua;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: linear-gradient(-45deg, #04258f 25%, #386b85 25%, #386b85 50%, #04258f 50%, #04258f 75%, #386b85 75%, #386b85 100%);
+  background-size: 56.57px 56.57px;
+  position: relative;
+}
+.climb-box:nth-child(even){
+  background-image: linear-gradient(45deg, #04258f 25%, #386b85 25%, #386b85 50%, #04258f 50%, #04258f 75%, #386b85 75%, #386b85 100%);
+  background-size: 56.57px 56.57px;
+}
+.curtain{
+  width: 100%;
+  position: absolute;
+  background: red;
+  height: 100%;
+}
+.hide{
+  height: 60px ;
+  width: 130px;
+  display: flex;
+  border: 2px solid black !important;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background: #F6BB42 ;
+}
+.unhide{
+  height: 60px;
+  width: 130px;
+  display: flex;
+  border: 2px solid black !important;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background: white !important;
+}
+
+.climb-main div div:hover{
+  cursor: pointer;
+}
+
+
 .footer{
   /* background-color: rgb(39, 37, 37); */
   color: aqua;
@@ -337,3 +403,13 @@ input::-webkit-inner-spin-button {
     padding: 0 15px !important;
   }
 } 
+
+@media (max-width: 450px){
+  .cont-home{
+    margin-top: 27px;
+  }
+  .sign-up-main,.login-main{
+    width: 80%;
+    margin-top: 100px;
+  }
+ } 

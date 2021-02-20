@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import Button from '@material-ui/core/Button';
 import ClearIcon from '@material-ui/icons/Clear';
 import S2 from './images/cards/S2.png'
@@ -17,7 +17,7 @@ import QS from './images/cards/QS.png'
 import QM from './images/cards/qm.png'
 
 const Blackjack = () => {
-   
+
     const [start,setstart] = useState(0);
     const [retry,setretry] = useState(1);
 
@@ -164,7 +164,8 @@ const Blackjack = () => {
                 findTotal()
                 if((cardsValue[random[0]] + cardsValue[random[1]] + (random[2] ? cardsValue[random[2]] : 0) + (random[3] ? cardsValue[random[3]] : 0) + (random[4] ? cardsValue[random[4]] : 0)) === 21){
                     settext("You Won!! Blackjack!!")
-                    setbal(bal+amt+amt)
+                    setbal(bal+(3/2(amt)))
+                    setamt(0)
                     sethide(-1)
                     setretry(0)
                     setstart(0)
@@ -277,84 +278,84 @@ const Blackjack = () => {
                             <h3 className="text-center">Welcome User</h3>
                             <br />
                             <h4 className="text-right">Available Balance: {bal}$</h4>
-                                <h3 className="text-center bj-head">BLACKJACK</h3>
-                                <div className="row mt-5">
-                                    <div className="col-md-6 text-center">
-                                        <div className="bj-user-hand">
-                                            <h3>User</h3>
-                                            <div className="d-flex disp">
-                                                <img src={u1} alt=""/>
-                                                <img src={u2} alt=""/>
-                                                <img src={u3} alt=""/>
-                                                <img src={u4} alt=""/>
-                                                <img src={u5} alt=""/>
-                                                {p}
-                                            </div>
-                                            <h4 className="text-center mt-4 d-flex flex-colume justify-content-center">Total  {totalU}</h4>
+                            <h3 className="text-center bj-head">BLACKJACK</h3>
+                            <div className="row mt-5">
+                                <div className="col-md-6 text-center">
+                                    <div className="bj-user-hand">
+                                        <h3>User</h3>
+                                        <div className="d-flex disp">
+                                            <img src={u1} alt=""/>
+                                            <img src={u2} alt=""/>
+                                            <img src={u3} alt=""/>
+                                            <img src={u4} alt=""/>
+                                            <img src={u5} alt=""/>
+                                            {p}
                                         </div>
-                                    </div>
-                                    <div className="col-md-6 text-center">
-                                        <div className="bj-comp-hand">
-                                            <h3>Comp</h3>
-                                            <div className="d-flex disp">
-                                                <img src={c1} alt=""/>
-                                                {h4}
-                                                <img src={c3} alt=""/>
-                                                <img src={c4} alt=""/>
-                                                <img src={c5} alt=""/>
-                                                {p}
-                                            </div>
-                                            <h4 className="text-center mt-4 d-flex flex-row justify-content-center">Total {count}</h4>
-                                        </div>
+                                        <h4 className="text-center mt-4 d-flex flex-colume justify-content-center">Total  {totalU}</h4>
                                     </div>
                                 </div>
-                                <h4 className="text-right mt-4">{text}</h4>
-                                <div className="mt-5 d-flex amount-slots">
-                                    
-                                    {start?<h4>Amount Betted : {amt}</h4>:
-                                    <>
-                                    <h3 className="mr-4">Enter Amount</h3>
-                                    <input className="w-200" autoComplete="off" type="number" placeholder="100,500,1000,..." value={amt} onChange={amtchange}/>
-                                    </>}
-                                    <div className="add-btns ml-auto">
-                                        {start?null:
-                                        <Button onClick={btn1} variant="outlined" className="mt-5 slots-button" color="primary">
-                                            <ClearIcon />
-                                        </Button>}
-                                        {start?null:
-                                        <Button onClick={btn2} variant="outlined" className="mt-5 slots-button" color="primary">
-                                            +100
-                                        </Button>}
-                                        {start?null:
-                                        <Button onClick={btn3} variant="outlined" className="mt-5 slots-button" color="primary">
-                                            +500
-                                        </Button>}
-                                        {start?null:
-                                        <Button onClick={btn4} variant="outlined" className="mt-5 slots-button" color="primary">
-                                            +1000
-                                        </Button>}
-                                        {start?null:
-                                        <Button onClick={btn5} variant="outlined" className="mt-5 slots-button" color="primary">
-                                            Max
-                                        </Button>}
+                                <div className="col-md-6 text-center">
+                                    <div className="bj-comp-hand">
+                                        <h3>Comp</h3>
+                                        <div className="d-flex disp">
+                                            <img src={c1} alt=""/>
+                                            {h4}
+                                            <img src={c3} alt=""/>
+                                            <img src={c4} alt=""/>
+                                            <img src={c5} alt=""/>
+                                            {p}
+                                        </div>
+                                        <h4 className="text-center mt-4 d-flex flex-row justify-content-center">Total {count}</h4>
                                     </div>
-                                    </div>
-                                    <div className=" mx-auto mt-5 d-flex justify-content-center">
-                                        {start?null:
-                                        <Button variant="outlined" className="mt-5 bj-retry" color="primary" onClick={checkBalance}>
-                                            START
-                                        </Button>}
-                                        {start?retry?
-                                        <Button variant="outlined" className="mt-5 bj-hit" color="primary" onClick={UserHit}>
-                                            HIT
-                                        </Button>:null:null}
-                                        {start?retry?<Button variant="outlined" className="mt-5 bj-hit" color="primary" onClick={Check}>
-                                            STAND
-                                        </Button>:null:null}
-                                        {start?<Button variant="outlined" className="mt-5 bj-hit" color="primary" onClick={Retry}>
-                                            RETRY
-                                        </Button>:null}
-                                    </div>
+                                </div>
+                            </div>
+                            <h4 className="text-right mt-4">{text}</h4>
+                            <div className="mt-5 d-flex amount-slots">
+                                
+                                {start?<h4>Amount Betted : {amt}</h4>:
+                                <>
+                                <h3 className="mr-4">Enter Amount</h3>
+                                <input className="w-200" autoComplete="off" type="number" placeholder="100,500,1000,..." value={amt} onChange={amtchange}/>
+                                </>}
+                                <div className="add-btns ml-auto">
+                                    {start?null:
+                                    <Button onClick={btn1} variant="outlined" className="mt-5 slots-button" color="primary">
+                                        <ClearIcon />
+                                    </Button>}
+                                    {start?null:
+                                    <Button onClick={btn2} variant="outlined" className="mt-5 slots-button" color="primary">
+                                        +100
+                                    </Button>}
+                                    {start?null:
+                                    <Button onClick={btn3} variant="outlined" className="mt-5 slots-button" color="primary">
+                                        +500
+                                    </Button>}
+                                    {start?null:
+                                    <Button onClick={btn4} variant="outlined" className="mt-5 slots-button" color="primary">
+                                        +1000
+                                    </Button>}
+                                    {start?null:
+                                    <Button onClick={btn5} variant="outlined" className="mt-5 slots-button" color="primary">
+                                        Max
+                                    </Button>}
+                                </div>
+                                </div>
+                                <div className=" mx-auto mt-5 d-flex justify-content-center">
+                                    {start?null:
+                                    <Button variant="outlined" className="mt-5 bj-retry" color="primary" onClick={checkBalance}>
+                                        START
+                                    </Button>}
+                                    {start?retry?
+                                    <Button variant="outlined" className="mt-5 bj-hit" color="primary" onClick={UserHit}>
+                                        HIT
+                                    </Button>:null:null}
+                                    {start?retry?<Button variant="outlined" className="mt-5 bj-hit" color="primary" onClick={Check}>
+                                        STAND
+                                    </Button>:null:null}
+                                    {start?<Button variant="outlined" className="mt-5 bj-hit" color="primary" onClick={Retry}>
+                                        RETRY
+                                    </Button>:null}
+                                </div>
                             </div>
                         </div>
                 </div>

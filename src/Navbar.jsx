@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
 import { NavLink } from 'react-router-dom'
+
 
 const Navbar = () => {
     return (           
@@ -29,7 +30,7 @@ const Navbar = () => {
                 </ul>
                 </div>
             </div>
-            </nav>
+            </nav>  
     )
 }
 

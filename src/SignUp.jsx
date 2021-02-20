@@ -1,28 +1,37 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const SignUp = () => {
     return (
         <div className="sign-up-main mx-auto">
             <h2 className="text-center mb-5 sign-up-text">Sign Up</h2>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Username" />
+            <div class="mb-3 row">
+                <div className='col-lg-5 col-md-12 mr-auto'>
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter First Name" />
+                </div>
+                <div className='col-lg-6 col-md-12 ml-auto'>
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Last Name" />
+                </div>
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Enter Email" />
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" placeholder="Enter Email" />
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput3" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleFormControlInput3" placeholder="Enter Password" />
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" />
             </div>
-            <NavLink className="signup-button" to='/login'>
-                <Button variant="outlined" color="primary">
+            {/* <Link className="signup-button" to='/login'> */}
+                <Button className="mt-4" variant="outlined" color="primary">
                     SignUp
                 </Button>
-            </NavLink>
+            {/* </Link> */}
+            <p className='mt-3'>
+                Already have an account? <Link to='/login'>Login</Link>
+            </p>
         </div>
     )
 }
