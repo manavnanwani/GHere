@@ -13,10 +13,10 @@ import {
 const initialState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresh'),
-    name: '',
-    balance: 0,
     isAuthenticated: null,
-    user: null
+    user: null,
+    name: '',
+    balance: 0
 };
 
 export default function(state = initialState, action) {
@@ -65,18 +65,24 @@ export default function(state = initialState, action) {
                 access: null,
                 refresh: null,
                 isAuthenticated: false,
-                user: null
+                user: null,
+                name: '',
+                balance: null
             }
         case LOGIN_FAIL:
         case LOGOUT:
             localStorage.removeItem('access');
             localStorage.removeItem('refresh');
+            localStorage.removeItem('name');
+            localStorage.removeItem('balance');
             return {
                 ...state,
                 access: null,
                 refresh: null,
                 isAuthenticated: false,
-                user: null
+                user: null,
+                name: '',
+                balance: null
             }
         default:
             return state

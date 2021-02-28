@@ -296,7 +296,7 @@ input::-webkit-inner-spin-button {
   background-color: black;
   color: grey;
   padding: 10px;
-  border: 3px solid grey;
+  border: 3px solid rgb(27, 0, 180);
   border-radius: 10px;
 
 }

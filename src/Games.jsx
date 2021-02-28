@@ -1,23 +1,52 @@
-import React, { useState,useEffect, createContext } from 'react'
+import React, { useState,useEffect } from 'react'
 import slots from './images/slots1.jpg'
 import blackjack from './images/blackjack1.jpg'
 import ladder from './images/ladder.jpg'
+
 import {NavLink, Redirect} from 'react-router-dom'
 import axios from 'axios'
-// import { balance } from './reducers/auth';
+import { connect } from 'react-redux';
+import {load_user} from './actions/auth'
+import Button from '@material-ui/core/Button';
 
-const Games = (state) => {
+const Games = ({load_user,name,balance}) => {
+    const [n,setn] = useState('');
+    const [bal,setbal] = useState(0);
+
+    const getBalance = () =>{
+        load_user();
+        setn(name)
+        setbal(balance)
+    }
+      
     useEffect(() => {
-        // setbal(state.auth.balance)
+        if (localStorage.getItem('access')) {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('access')}`,
+                    'Accept': 'application/json'
+                }
+            }; 
+            try {
+                const res = axios.get(`${process.env.REACT_APP_API_URL}/auth/users/me/`, config);
+                setn(res.first_name)
+                setbal(res.balance)
+                getBalance()
+            } catch (err) {
+                    alert(err)
+            }
+        } else {
+                alert('error')
+        }
     })
-    const [name,setname] = useState('');
-    const [bal,setbal] = useState('');
+
     return (
         <div className="d-flex align-items-center">
             <div className="container-fluid cont">
                 <div className="row">
                     <div className="col-md-10 mx-auto">
-                        <h1 className="text-center">Welcome to the games <span className="cust-name">{name}</span></h1>
+                        <h1 className="text-center">Welcome to the games <span className="cust-name">{n}</span></h1>
                         <h4 className="text-right">Balance : {bal}
                         </h4>
                         <div className="row mt-5">
@@ -53,4 +82,10 @@ const Games = (state) => {
     )
 }
 
-export default Games
+const mapStateToProps = state => ({
+    name: state.auth.name,
+    balance: state.auth.balance,
+});
+
+export default connect(mapStateToProps,{load_user})(Games)
+// export default Games

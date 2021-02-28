@@ -15,14 +15,18 @@ import KS from './images/cards/KS.png'
 import JS from './images/cards/JS.png'
 import QS from './images/cards/QS.png'
 import QM from './images/cards/qm.png'
+import { connect } from 'react-redux';
 
 const Blackjack = () => {
+
+
+    const [bal,setbal] = useState(2000);
+
 
     const [start,setstart] = useState(0);
     const [retry,setretry] = useState(1);
 
     const [amt, setamt] = useState(0)
-    const [bal,setbal] = useState(2000)
     const [text,settext] = useState("Enter a minimum of 10$ to start your game.")
     const [u1,setu1] = useState("")
     const [u2,setu2] = useState("")
@@ -127,11 +131,14 @@ const Blackjack = () => {
             sethide(-1)
             setretry(0)
             setstart(0)
-            
         }
         else if(totalU === 21){
             settext("You Won!! Blackjack!!")
             setbal(bal+amt+amt)
+            setamt(0)
+            sethide(-1)
+            setretry(0)
+            setstart(0)
         }
         else if(totalU< 21){
             if(random[2] === 0){
@@ -141,6 +148,7 @@ const Blackjack = () => {
                 if((cardsValue[random[0]] + cardsValue[random[1]] + (random[2] ? cardsValue[random[2]] : 0) + (random[3] ? cardsValue[random[3]] : 0) + (random[4] ? cardsValue[random[4]] : 0)) === 21){
                     settext("You Won!! Blackjack!!")
                     setbal(bal+amt+amt)
+                    setamt(0)
                     sethide(-1)
                     setretry(0)
                     setstart(0)
@@ -153,6 +161,7 @@ const Blackjack = () => {
                 if((cardsValue[random[0]] + cardsValue[random[1]] + (random[2] ? cardsValue[random[2]] : 0) + (random[3] ? cardsValue[random[3]] : 0) + (random[4] ? cardsValue[random[4]] : 0)) === 21){
                     settext("You Won!! Blackjack!!")
                     setbal(bal+amt+amt)
+                    setamt(0)
                     sethide(-1)
                     setretry(0)
                     setstart(0)
@@ -309,7 +318,7 @@ const Blackjack = () => {
                                     </div>
                                 </div>
                             </div>
-                            <h4 className="text-right mt-4">{text}</h4>
+                            <h4 className="text-center mt-4">{text}</h4>
                             <div className="mt-5 d-flex amount-slots">
                                 
                                 {start?<h4>Amount Betted : {amt}</h4>:
@@ -363,5 +372,6 @@ const Blackjack = () => {
         </div>
     )
 }
+
 
 export default Blackjack

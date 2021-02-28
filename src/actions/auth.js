@@ -21,7 +21,6 @@ export const load_user = () => async dispatch => {
                 'Accept': 'application/json'
             }
         }; 
-
         try {
             const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users/me/`, config);
     
@@ -84,7 +83,7 @@ export const login = (email, password) => async dispatch => {
             payload: res.data
         });
 
-        dispatch(load_user());
+        // dispatch(load_user());
     } catch (err) {
         dispatch({
             type: LOGIN_FAIL
