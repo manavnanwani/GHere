@@ -69,7 +69,7 @@ const Games = ({ load_user, name, balance }) => {
                 </NavLink>
               </div>
               <div className="col-md-4 pt-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column text-center">
-                <NavLink className="games-slots-link" to="">
+                <NavLink className="games-slots-link" to="/">
                   <div className="games-slots">
                     <img src={ladder} className="slots-img" alt="" />
                     <h3>CLIMB</h3>

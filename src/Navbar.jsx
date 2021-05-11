@@ -60,18 +60,18 @@ const Navbar = ({ logout, isAuthenticated }) => {
         <NavLink
           activeClassName="active-link"
           className="nav-link text-uppercase"
-          to="/contact"
+          to="/games"
         >
-          Contact
+          Games
         </NavLink>
       </li>
       <li className="nav-item">
         <NavLink
           activeClassName="active-link"
           className="nav-link text-uppercase"
-          to="/games"
+          to="/contact"
         >
-          Games
+          Contact
         </NavLink>
       </li>
       <li className="nav-item">

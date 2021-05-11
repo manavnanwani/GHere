@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Home = () => {
+const Home = ({ isAuthenticated }) => {
   return (
     <div>
       <div className="d-flex align-items-center home-page">
@@ -23,15 +24,19 @@ const Home = () => {
                     <br />
                     Start betting in 5 minutes!
                   </p>
-                  <Link className="go-to" to="/signup">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className="get-started"
-                    >
-                      SIGN UP FOR FREE
-                    </Button>
-                  </Link>
+                  {isAuthenticated ? (
+                    ""
+                  ) : (
+                    <Link className="go-to" to="/signup">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className="get-started"
+                      >
+                        SIGN UP FOR FREE
+                      </Button>
+                    </Link>
+                  )}
                 </div>
                 <div className="col-md-7 pt-5 pt-lg-0 order-1 order-md-2 d-flex justify-content-center">
                   {/* <img src="https://assets.coingecko.com/coins/images/738/large/eos-eos-logo.png?1547034481" className="img-fluid animated" alt="" /> */}
@@ -45,4 +50,8 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Home);
